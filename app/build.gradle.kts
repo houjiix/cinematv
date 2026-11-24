@@ -85,11 +85,11 @@ dependencies {
     implementation("androidx.compose.material:material-icons-extended")
     implementation("androidx.navigation:navigation-compose:2.8.5")
 
-    // Compose for Android TV (Leanback / 10-foot UI)
-    implementation("androidx.tv:tv-foundation:1.0.0-alpha11")
-    implementation("androidx.tv:tv-material:1.0.0-alpha11")
+    // Compose for Android TV
+    implementation("androidx.tv:tv-foundation:1.0.0")
+    implementation("androidx.tv:tv-material:1.1.0")
 
-    // AndroidX Media3 ExoPlayer (HLS, DASH, MP4, MKV, Subtitle rendering)
+    // AndroidX Media3 ExoPlayer
     val media3Version = "1.5.1"
     implementation("androidx.media3:media3-exoplayer:$media3Version")
     implementation("androidx.media3:media3-exoplayer-hls:$media3Version")
