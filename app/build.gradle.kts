@@ -92,11 +92,11 @@ dependencies {
     implementation("androidx.compose.material:material-icons-extended")
     implementation("androidx.navigation:navigation-compose:2.8.5")
 
-    // Compose for Android TV
+    // Android TV
     implementation("androidx.tv:tv-foundation:1.0.0")
     implementation("androidx.tv:tv-material:1.1.0")
 
-    // AndroidX Media3 ExoPlayer
+    // Media3 ExoPlayer
     val media3Version = "1.5.1"
 
     implementation("androidx.media3:media3-exoplayer:$media3Version")
@@ -115,11 +115,12 @@ dependencies {
     implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")
 
-    // Image Loading with Disk & Memory Caching
+    // Image Loading
     implementation("io.coil-kt:coil-compose:2.7.0")
 
     // Persistence: Room + DataStore + EncryptedSharedPreferences
-    val roomVersion = "2.6.1"
+    // Keep all Room artifacts on exactly the same version.
+    val roomVersion = "2.8.5"
 
     implementation("androidx.room:room-runtime:$roomVersion")
     implementation("androidx.room:room-ktx:$roomVersion")
@@ -132,7 +133,7 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.9.0")
 
-    // Android Instrumentation & Compose UI Testing
+    // Instrumentation & Compose UI Testing
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
