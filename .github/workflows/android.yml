@@ -1,6 +1,6 @@
 name: CINEMA TV Android CI
 
-on:
+"on":
 push:
 branches:
 - main
@@ -34,10 +34,12 @@ steps:
 
   - name: Set up Android SDK
     uses: android-actions/setup-android@v4
-    with:
-      accept-android-sdk-licenses: true
-      log-accepted-android-sdk-licenses: false
-      packages: platform-tools
+
+  - name: Accept Android SDK licenses
+    run: yes | sdkmanager --licenses
+
+  - name: Install Android SDK packages
+    run: sdkmanager "platform-tools" "platforms;android-35" "build-tools;35.0.0"
 
   - name: Configure Gradle
     uses: gradle/actions/setup-gradle@v4
@@ -49,18 +51,15 @@ steps:
       if [ ! -f ./gradle/wrapper/gradle-wrapper.jar ]; then
         gradle wrapper --gradle-version 8.11.1
       fi
-
       test -f ./gradlew
       chmod +x ./gradlew
       ./gradlew --no-daemon --version
 
   - name: Run Android lint
-    run: |
-      ./gradlew --no-daemon --stacktrace :app:lintDebug
+    run: ./gradlew --no-daemon --stacktrace :app:lintDebug
 
   - name: Run unit tests
-    run: |
-      ./gradlew --no-daemon --stacktrace :app:testDebugUnitTest
+    run: ./gradlew --no-daemon --stacktrace :app:testDebugUnitTest
 
   - name: Run Android emulator tests
     uses: reactivecircus/android-emulator-runner@v2
@@ -70,12 +69,10 @@ steps:
       arch: x86_64
       profile: pixel_7_pro
       disable-animations: true
-      script: |
-        ./gradlew --no-daemon --stacktrace :app:connectedDebugAndroidTest
+      script: ./gradlew --no-daemon --stacktrace :app:connectedDebugAndroidTest
 
   - name: Build debug APK
-    run: |
-      ./gradlew --no-daemon --stacktrace :app:assembleDebug
+    run: ./gradlew --no-daemon --stacktrace :app:assembleDebug
 
   - name: Verify APK exists
     run: |
