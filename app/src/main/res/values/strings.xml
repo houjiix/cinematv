@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CINEMA TV</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_movies">Movies</string>
+    <string name="nav_series">Series</string>
+    <string name="nav_search">Search</string>
+    <string name="nav_my_list">My List</string>
+    <string name="nav_continue">Continue Watching</string>
+    <string name="nav_settings">Settings</string>
+    <string name="instagram_handle">@houjix_</string>
+    <string name="instagram_url">https://www.instagram.com/houjix_/</string>
+    <string name="subtitle_default_arabic">Arabic (Default)</string>
+</resources>

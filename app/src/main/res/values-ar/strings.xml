@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CINEMA TV</string>
+    <string name="nav_home">الرئيسية</string>
+    <string name="nav_movies">الأفلام</string>
+    <string name="nav_series">المسلسلات</string>
+    <string name="nav_search">البحث</string>
+    <string name="nav_my_list">قائمتي</string>
+    <string name="nav_continue">متابعة المشاهدة</string>
+    <string name="nav_settings">الإعدادات</string>
+    <string name="instagram_handle">@houjix_</string>
+    <string name="instagram_url">https://www.instagram.com/houjix_/</string>
+    <string name="subtitle_default_arabic">العربية (الافتراضية)</string>
+</resources>
