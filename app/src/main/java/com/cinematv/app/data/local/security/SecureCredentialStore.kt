@@ -69,7 +69,14 @@ class SecureCredentialStore(context: Context) {
         /**
          * Redacts sensitive headers and tokens prior to structured logging.
          */
+        private val SENSITIVE_CREDENTIAL_PATTERN = Regex(
+            """\b(token|api[-_]?key|password|access[-_]?token|refresh[-_]?token|client[-_]?secret)\s*=\s*(?:"[^"]*"|'[^']*'|[^,\s&;]+)""",
+            RegexOption.IGNORE_CASE
+        )
+
         fun redactForLogging(raw: String): String =
-            raw.replace(Regex("(Token|Api-Key|api_key|Password)=[^,\\s&\"]+", RegexOption.IGNORE_CASE), "$1=[REDACTED]")
+            SENSITIVE_CREDENTIAL_PATTERN.replace(raw) { match ->
+                "${match.groupValues[1]}=[REDACTED]"
+            }
     }
 }
